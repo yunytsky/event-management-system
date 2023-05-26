@@ -1,4 +1,4 @@
 #vcpkg
-/EventManagementSystemApp/vcpkg
-/EventManagementSystemApp/.vs
+./EventManagementSystemApp/vcpkg
+./EventManagementSystemApp/.vs
 
