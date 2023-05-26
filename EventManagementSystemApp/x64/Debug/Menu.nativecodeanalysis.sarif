@@ -1,0 +1,51 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.36.32532.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/menu.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "3f99f7456903468e694afd262cfd01d1b60132964112704d234490ef337d8a78"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/menu.h"
+          },
+          "hashes": {
+            "sha-256": "fb8e058f81903560b3ad4ab291d164cdee2c09c3ec79878d50289f5625a54696"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/authorization.h"
+          },
+          "hashes": {
+            "sha-256": "6f6cd62e9f523977d778a7809b0f998e2991a08173dbd409caa39ee35028ef47"
+          }
+        }
+      ]
+    }
+  ]
+}

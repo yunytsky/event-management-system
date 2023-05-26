@@ -1,0 +1,155 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.36.32532.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/authorization.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "683f9252d96ea8743670d42ad79dba3bf22e5bb48cad22ec6345d24ae300204d"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/authorization.h"
+          },
+          "hashes": {
+            "sha-256": "6f6cd62e9f523977d778a7809b0f998e2991a08173dbd409caa39ee35028ef47"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/eventmanager.h"
+          },
+          "hashes": {
+            "sha-256": "9607746130b20e5766a235385584a1fb0a53addd1d31984d0e6eba9d62ac542e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/attendee.h"
+          },
+          "hashes": {
+            "sha-256": "aa864d32100d1df36813d5cd52042020db6ad01dd800e94043154406372b0f74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/event.h"
+          },
+          "hashes": {
+            "sha-256": "bd01ff00fe93ec35442e460f6deab044a17b6678731ae8350aa4ca63872c088a"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/menu.h"
+          },
+          "hashes": {
+            "sha-256": "fb8e058f81903560b3ad4ab291d164cdee2c09c3ec79878d50289f5625a54696"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/admin.h"
+          },
+          "hashes": {
+            "sha-256": "42233e3179107fe77fff0587b05a04ad8e98dc3d8d8e71082a8c6e690a8e15cc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/json.h"
+          },
+          "hashes": {
+            "sha-256": "05ccb35afa55a068f8cc2a195db46d89a7f6a458d1943ae009465834c6404a67"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/config.h"
+          },
+          "hashes": {
+            "sha-256": "a607e32e34497e2c51df1c61e6627760618d7d6964d9f47dfa8165ad305063b9"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/allocator.h"
+          },
+          "hashes": {
+            "sha-256": "e286b3621b0f260fb634fe7c2cf7591ce983ab8e590b9705981295b4c4509fd6"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/version.h"
+          },
+          "hashes": {
+            "sha-256": "752cdd61cb97aca4dcbb6d83d5b91849fcfe01e94bdf3048d543baa7a17fa001"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/json_features.h"
+          },
+          "hashes": {
+            "sha-256": "5a08a4c1e4afc047915a01dce28bbba69feeb2f452e0871c02d6f90f2d30cd68"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/forwards.h"
+          },
+          "hashes": {
+            "sha-256": "4e5144062f296c821107af272c39df31b7ac6fcfefbeb66637958738fc09a117"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/reader.h"
+          },
+          "hashes": {
+            "sha-256": "37f48bcffdb29ef6374b894956956627cfedf106b2ace90bfd26e6f0dfb25577"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/value.h"
+          },
+          "hashes": {
+            "sha-256": "4b57ba49499c04de03f5df848f8714ea8b34578d089ae56c1a5aefa0df3c5ffa"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/vcpkg/installed/x64-windows/include/json/writer.h"
+          },
+          "hashes": {
+            "sha-256": "55aca7f7eaf0adedf5a1f2aa8006dbaa277dfe7a659b0491304b1043d9091a6b"
+          }
+        }
+      ]
+    }
+  ]
+}

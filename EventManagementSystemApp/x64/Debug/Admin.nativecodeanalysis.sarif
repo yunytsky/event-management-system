@@ -1,0 +1,75 @@
+{
+  "version": "2.1.0",
+  "$schema": "https://schemastore.azurewebsites.net/schemas/json/sarif-2.1.0-rtm.5.json",
+  "runs": [
+    {
+      "results": [],
+      "tool": {
+        "driver": {
+          "name": "PREfast",
+          "fullName": "PREfast Code Analysis",
+          "version": "14.36.32532.0",
+          "informationUri": "https://aka.ms/cpp/ca"
+        }
+      },
+      "invocations": [
+        {
+          "executionSuccessful": true
+        }
+      ],
+      "artifacts": [
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/admin.cpp"
+          },
+          "roles": [
+            "analysisTarget"
+          ],
+          "hashes": {
+            "sha-256": "20e5da08e10ca277f67e690838fde43cd3bd34aacb2a011a73adb40f218f6630"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/admin.h"
+          },
+          "hashes": {
+            "sha-256": "42233e3179107fe77fff0587b05a04ad8e98dc3d8d8e71082a8c6e690a8e15cc"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/menu.h"
+          },
+          "hashes": {
+            "sha-256": "fb8e058f81903560b3ad4ab291d164cdee2c09c3ec79878d50289f5625a54696"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/eventmanager.h"
+          },
+          "hashes": {
+            "sha-256": "9607746130b20e5766a235385584a1fb0a53addd1d31984d0e6eba9d62ac542e"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/attendee.h"
+          },
+          "hashes": {
+            "sha-256": "aa864d32100d1df36813d5cd52042020db6ad01dd800e94043154406372b0f74"
+          }
+        },
+        {
+          "location": {
+            "uri": "file:///d:/desnenkoo/projects 2023/eventmanagementsuystem/consoleapplication1/event.h"
+          },
+          "hashes": {
+            "sha-256": "bd01ff00fe93ec35442e460f6deab044a17b6678731ae8350aa4ca63872c088a"
+          }
+        }
+      ]
+    }
+  ]
+}

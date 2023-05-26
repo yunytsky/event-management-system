@@ -1,0 +1,3 @@
+D:\desnenkoo\Projects 2023\EventManagementSystem\EventManagementSystemApp\x64\Debug\EventManagementSystemApp.vcxproj.CopyComplete
+D:\desnenkoo\Projects 2023\EventManagementSystem\EventManagementSystemApp\x64\Debug\EventManagementSystemApp.exe
+D:\desnenkoo\Projects 2023\EventManagementSystem\EventManagementSystemApp\x64\Debug\jsoncpp.dll

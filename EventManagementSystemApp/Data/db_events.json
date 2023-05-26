@@ -1,0 +1,38 @@
+{
+	"ASUS presentation" : 
+	{
+		"date" : "12 November, 2023",
+		"id" : 4,
+		"location" : "Vancouver, 46th avenue",
+		"product" : "laptop",
+		"time" : "6pm",
+		"type" : "product launch"
+	},
+	"COMPSCI 2023" : 
+	{
+		"date" : "10 August, 2023",
+		"id" : 3,
+		"location" : "Kyiv, Hrushevskoho street",
+		"time" : "10am",
+		"topic" : "Computer science",
+		"type" : "conference"
+	},
+	"Company birthday" : 
+	{
+		"attire" : "semi-formal",
+		"date" : "5 July, 2023",
+		"id" : 1,
+		"location" : "Kyiv, Polovetska street",
+		"time" : "8pm",
+		"type" : "corporate party"
+	},
+	"Lenovo presentation" : 
+	{
+		"date" : "ds",
+		"id" : 2,
+		"location" : "Vienna, Deinhardsteingasse 23",
+		"product" : "smartphone",
+		"time" : "10am",
+		"type" : "product launch"
+	}
+}

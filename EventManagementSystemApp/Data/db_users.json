@@ -1,0 +1,64 @@
+{
+	"Alex Petrenko" : 
+	{
+		"email" : "alexpetrenko@gmail.com",
+		"events" : {},
+		"id" : 3,
+		"password" : "pass123",
+		"phoneNumber" : "0974198265"
+	},
+	"Andrii Ivanenko" : 
+	{
+		"email" : "andrii_ivanenko@gmail.com",
+		"events" : 
+		{
+			"ASUS presentation" : 
+			{
+				"date" : "12 November, 2023",
+				"id" : 4,
+				"location" : "Vancouver, 46th avenue",
+				"product" : "laptop",
+				"time" : "6pm",
+				"type" : "product launch"
+			}
+		},
+		"id" : 6,
+		"password" : "pass12345",
+		"phoneNumber" : "0974198267"
+	},
+	"Ivan Andrienko" : 
+	{
+		"email" : "jacksmith@gmail.com",
+		"events" : {},
+		"id" : 1,
+		"password" : "pass123",
+		"phoneNumber" : "0974198268"
+	},
+	"Ivan Lukianenko" : 
+	{
+		"email" : "lukianenko@gmail.com",
+		"events" : {},
+		"id" : 2,
+		"password" : "pass123",
+		"phoneNumber" : "0974198269"
+	},
+	"Yaroslav Tkachuk" : 
+	{
+		"email" : "tkachukyaroslav@gmail.com",
+		"events" : 
+		{
+			"Lenovo presentation" : 
+			{
+				"date" : "ds",
+				"id" : 2,
+				"location" : "Vienna, Deinhardsteingasse 23",
+				"product" : "smartphone",
+				"time" : "10am",
+				"type" : "product launch"
+			}
+		},
+		"id" : 8,
+		"password" : "password123",
+		"phoneNumber" : "0974198266"
+	}
+}
