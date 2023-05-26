@@ -27,13 +27,13 @@ void createEvent(std::string eventType) {
 
         Conference event = Conference(name, location, date, time, topic);
         if (eventManager.addEvent(event)) {
-            std::cout << "\nEvent has been successfully added";
+            std::cout << "\nEvent has been successfully added. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
         }
         else {
-            std::cout << "\nError. Faield to add an event";
+            std::cout << "\nError. Faield to add an event. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
@@ -49,13 +49,13 @@ void createEvent(std::string eventType) {
         ProductLaunch event = ProductLaunch(name, location, date, time, product);
 
         if (eventManager.addEvent(event)) {
-            std::cout << "\nEvent has been successfully added";
+            std::cout << "\nEvent has been successfully added. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
         }
         else {
-            std::cout << "\nError. Faield to add an event";
+            std::cout << "\nError. Faield to add an event. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
@@ -70,13 +70,13 @@ void createEvent(std::string eventType) {
         CorporateParty event = CorporateParty(name, location, date, time, attire);
 
         if (eventManager.addEvent(event)) {
-            std::cout << "\nEvent has been successfully added";
+            std::cout << "\nEvent has been successfully added. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
         }
         else {
-            std::cout << "\nError. Faield to add an event";
+            std::cout << "\nError. Faield to add an event. Redirection...";
             std::this_thread::sleep_for(std::chrono::seconds(3));
             system("cls");
             callAdminMenu();
@@ -161,13 +161,13 @@ void inviteAttendeeToAnEvent() {
                     if (event.getId() == pickedEventId) {
                         eventFound = true;
                         if (eventManager.assignEvent(event, attendee)) {
-                            std::cout << "\nThe attnedee has been successfully invited to the event";
+                            std::cout << "\nThe attnedee has been successfully invited to the event. Redirection...";
                             std::this_thread::sleep_for(std::chrono::seconds(3));
                             system("cls");
                             callAdminMenu();
                         }
                         else {
-                            std::cout << "\nFailed to invite the attendee to the event";
+                            std::cout << "\nFailed to invite the attendee to the event. Redirection...";
                             std::this_thread::sleep_for(std::chrono::seconds(3));
                             system("cls");
                             callAdminMenu();
@@ -199,13 +199,13 @@ void deleteEventById(unsigned int id) {
             if (event.getId() == id) {
                 eventFound = true;
                 if (eventManager.deleteEvent(event)) {
-                    std::cout << "\nThe event has been successfully removed";
+                    std::cout << "\nThe event has been successfully removed. Redirection...";
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                     callAdminMenu();
                 }
                 else {
-                    std::cout << "\nFailed to remove the event";
+                    std::cout << "\nFailed to remove the event. Redirection...";
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                     callAdminMenu();

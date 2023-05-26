@@ -7,6 +7,7 @@
 Attendee::Attendee(std::string firstName, std::string lastName, std::string email, std::string phoneNumber, std::string password)
 	: firstName(firstName), lastName(lastName), email(email), phoneNumber(phoneNumber), password(password) {
 	this->attendeeEvents = {};
+    this->_id = 1;
 }
 
 //Destructor

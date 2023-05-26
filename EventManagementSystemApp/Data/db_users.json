@@ -9,22 +9,11 @@
 	},
 	"Andrii Ivanenko" : 
 	{
-		"email" : "andrii_ivanenko@gmail.com",
-		"events" : 
-		{
-			"ASUS presentation" : 
-			{
-				"date" : "12 November, 2023",
-				"id" : 4,
-				"location" : "Vancouver, 46th avenue",
-				"product" : "laptop",
-				"time" : "6pm",
-				"type" : "product launch"
-			}
-		},
-		"id" : 6,
-		"password" : "pass12345",
-		"phoneNumber" : "0974198267"
+		"email" : "andrii@gmail.com",
+		"events" : {},
+		"id" : 4,
+		"password" : "password",
+		"phoneNumber" : "0688888888"
 	},
 	"Ivan Andrienko" : 
 	{

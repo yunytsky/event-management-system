@@ -153,9 +153,8 @@ bool EventManager::addAttendee(Attendee& attendee) {
     Json::Value events(Json::objectValue);
 
 
-    attendee.setId(1);
     //Check if Id of this attendee was already taken
-    unsigned int id = 1;
+    unsigned int id = attendee.getId();
     bool idIsTaken = false;
     if (!allEvents.empty()) {
         for (Attendee& otherAttendee : allAttendees) {
@@ -235,7 +234,7 @@ bool EventManager::addEvent(Event& event) {
 
 
     //Check if Id of this event was already taken
-    unsigned int id = 1;
+    unsigned int id = event.getId();
     bool idIsTaken = false;
     if (!allEvents.empty()) {
         for (Event& otherEvent : allEvents) {

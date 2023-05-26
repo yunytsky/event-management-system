@@ -150,6 +150,7 @@ void logInAttendee() {
                     authorized = true;
                     break;
                 }
+                break;
             }
         }
 
@@ -212,13 +213,13 @@ void signUp() {
 
                 Attendee newAttendee = Attendee(firstName, lastName, email, phoneNumber, password);
                 if (eventManager.addAttendee(newAttendee)) {
-                    std::cout << "Account has been successfully created";
+                    std::cout << "Account has been successfully created. Redirection...";
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                     initMenu();
                 }
                 else {
-                    std::cout << "Error. Faield to create an account.";
+                    std::cout << "Error. Faield to create an account. Redirection...";
                     std::this_thread::sleep_for(std::chrono::seconds(3));
                     system("cls");
                     initMenu();
