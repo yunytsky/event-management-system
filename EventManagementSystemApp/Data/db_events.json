@@ -8,15 +8,6 @@
 		"time" : "6pm",
 		"type" : "product launch"
 	},
-	"COMPSCI 2023" : 
-	{
-		"date" : "10 August, 2023",
-		"id" : 3,
-		"location" : "Kyiv, Hrushevskoho street",
-		"time" : "10am",
-		"topic" : "Computer science",
-		"type" : "conference"
-	},
 	"Company birthday" : 
 	{
 		"attire" : "semi-formal",

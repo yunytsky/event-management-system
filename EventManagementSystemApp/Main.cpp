@@ -1,9 +1,7 @@
-#include "EventManager.h"
-#include "Authorization.h"
-#include "Event.h"
 #include "Menu.h"
+//================================================================
 
-
+//Programm initialization
 int main() {
     initMenu();
     return 0;

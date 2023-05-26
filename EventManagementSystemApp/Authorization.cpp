@@ -9,6 +9,7 @@
 #include <conio.h>
 #include <thread>
 #include <json/json.h>
+//================================================================
 
 //Function to hide an input of a password/key
 std::string getHiddenInput() {
@@ -87,7 +88,6 @@ void logIn() {
 
     } while (error);
 }
-
 void logInAdmin() {
     std::string adminPassword;
     bool authorized = false;
@@ -129,7 +129,6 @@ void logInAdmin() {
 
     db_admin.close();
 }
-
 void logInAttendee() {
     std::string fullName;
     std::string attendeePassword;
@@ -140,13 +139,14 @@ void logInAttendee() {
     std::getline(std::cin, fullName);
    
     while (!authorized) {
-        for (Attendee& attendee : eventManager.getAllAttendees()) {
-            if ((attendee.getFirstName() + " " + attendee.getLastName()) == fullName) {
+        for (Attendee* attendee : eventManager.getAllAttendees()) {
+            if ((attendee->getFirstName() + " " + attendee->getLastName()) == fullName) {
                 std::cout << "Enter your password: ";
                 attendeePassword = getHiddenInput();
-                if (attendee.getPassword() == attendeePassword) {
+                if (attendee->getPassword() == attendeePassword) {
                     system("cls");
-                    callUserMenu(attendee);
+                    Attendee& attendeeRef = *attendee;
+                    callUserMenu(attendeeRef);
                     authorized = true;
                     break;
                 }
@@ -168,7 +168,6 @@ void logInAttendee() {
         }
     }
 }
-
 void signUp() {
     std::string key, firstName, lastName, email, password, phoneNumber;
     std::ifstream keys;
@@ -211,7 +210,7 @@ void signUp() {
                 std::cout << "Password: ";
                 password = getHiddenInput();
 
-                Attendee newAttendee = Attendee(firstName, lastName, email, phoneNumber, password);
+                Attendee* newAttendee = new Attendee(firstName, lastName, email, phoneNumber, password);
                 if (eventManager.addAttendee(newAttendee)) {
                     std::cout << "Account has been successfully created. Redirection...";
                     std::this_thread::sleep_for(std::chrono::seconds(3));

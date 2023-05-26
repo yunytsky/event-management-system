@@ -4,3 +4,4 @@ D:\desnenkoo\Projects 2023\EventManagementSystem\EventManagementSystemApp\x64\De
 D:\desnenkoo\Projects 2023\project_6_event_management_system\EventManagementSystemApp\x64\Debug\EventManagementSystemApp.vcxproj.CopyComplete
 D:\desnenkoo\Projects 2023\project_6_event_management_system\EventManagementSystemApp\x64\Debug\EventManagementSystemApp.exe
 D:\desnenkoo\Projects 2023\project_6_event_management_system\EventManagementSystemApp\x64\Debug\jsoncpp.dll
+D:\desnenkoo\Projects 2023\clone\EventManagementSystemApp\x64\Debug\EventManagementSystemApp.exe

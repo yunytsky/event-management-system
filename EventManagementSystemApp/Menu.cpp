@@ -1,7 +1,7 @@
 #include "Menu.h"
 #include "Authorization.h"
+#include "Event.h"
 #include <iostream>
-
 //================================================================
 
 //Default constructor
@@ -13,8 +13,6 @@ Menu::Menu(std::vector<std::string> options)
 {
     this->options = options;
 }
-
-
 
 //Display menu
 void Menu::displayMenu()
@@ -48,10 +46,12 @@ Menu userMenu = Menu({ "Show my events", "Log out" });
 Menu logInMenu = Menu({ "Log in as an admin", "Log in as an attendee", "Go back" });
 Menu adminAttendeesMenu = Menu({ "Show all attendees", "Show one attendee by ID" });
 Menu adminEventsMenu = Menu({ "Show all events", "Show one event by category" });
-Menu eventTypeMenu = Menu({ "Conference", "Product launch", "Corporate party" });
+Menu eventTypeCreateMenu = Menu({ "Conference", "Product launch", "Corporate party", "Go back" });
+Menu eventTypeDisplayMenu = Menu({ "Show all events", "Conferences", "Product launches", "Corporate parties", "Go back" });
+
 //================================================================
 
-//Main menu initialization
+//Main menu initialization function
 void initMenu()
 {
     defaultMenu.displayMenu();

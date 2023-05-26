@@ -3,6 +3,7 @@
 #include <iostream>
 #include <vector>
 #include <string>
+//================================================================
 
 //Class declaration
 class Attendee
@@ -10,7 +11,7 @@ class Attendee
 private:
 	std::string firstName, lastName, email, password, phoneNumber;
 	unsigned int _id;
-	std::vector<Event> attendeeEvents;
+	std::vector<Event*> attendeeEvents;
 public:
 	std::string getFirstName();
 	std::string getLastName();
@@ -18,17 +19,17 @@ public:
 	std::string getPassword();
 	unsigned int getId();
 	std::string getPhoneNumber();
-	std::vector<Event> getAttendeeEvents();
+	std::vector<Event*> getAttendeeEvents();
 
 	void setId(unsigned int);
-	void setEvents(std::vector<Event>&);
+	void setEvents(std::vector<Event*>);
 
 	Attendee(std::string, std::string, std::string, std::string, std::string);
 	~Attendee();
 
-	void addEvent(Event&);
-	void removeAttendeeEvent(Event&);
-	void showAttendeeEvents();
+	void addEvent(Event*);
+	void removeAttendeeEvent(Event*);
+	void showAttendeeEvents(std::string);
 
 	friend std::ostream& operator<<(std::ostream&, const Attendee&);
 	bool operator==(const Attendee&);
@@ -38,5 +39,6 @@ public:
 //Attendee's menu functions
 void callUserMenu(Attendee&);
 void navigateAttendee(Attendee&);
+void callShowEventsAttendeeMenu(Attendee&);
 
 

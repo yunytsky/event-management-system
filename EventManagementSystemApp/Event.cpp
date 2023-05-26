@@ -1,4 +1,5 @@
 #include "Event.h"
+//================================================================
 
 //Base class 
 //Constructor
@@ -7,9 +8,6 @@ Event::Event(std::string name, std::string location, std::string date, std::stri
 {
 	this->_id = 1;
 }
-
-//Destructor
-Event::~Event(){}
 
 //Virtual functions
 void Event::showDetails() {
@@ -89,6 +87,7 @@ bool Event::operator==(const Event& other) {
 	}
 }
 
+//================================================================
 //Derived classes
 //Constructors
 Conference::Conference(std::string name, std::string location, std::string date, std::string time, std::string topic)

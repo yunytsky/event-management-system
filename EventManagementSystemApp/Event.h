@@ -1,7 +1,7 @@
 #pragma once
 #include <string>
 #include <iostream>
-
+//================================================================
 
 //Declaring Event base class
 class Event{
@@ -18,7 +18,6 @@ public:
 	unsigned int getId();
 	void setId(unsigned int id);
 
-	virtual ~Event();
 	virtual void showDetails();
 
 	friend std::ostream& operator<<(std::ostream&, const Event&);

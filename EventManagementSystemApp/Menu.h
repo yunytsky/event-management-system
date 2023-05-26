@@ -1,13 +1,13 @@
 #pragma once
 #include <vector>
 #include <string>
+//================================================================
 
 //Menu class declaration
 class Menu
 {
 public:
 	std::vector<std::string> options;
-
 	Menu();
 	Menu(std::vector<std::string>);
 
@@ -25,4 +25,5 @@ extern Menu userMenu;
 extern Menu logInMenu;
 extern Menu adminAttendeesMenu;
 extern Menu adminEventsMenu;
-extern Menu eventTypeMenu ;
+extern Menu eventTypeCreateMenu ;
+extern Menu eventTypeDisplayMenu;

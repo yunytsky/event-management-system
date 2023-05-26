@@ -1,7 +1,9 @@
 #pragma once
 #include <string>
 #include <fstream>
+//================================================================
 
+//Declaring authorization functions
 void logIn();
 void logInAdmin();
 void logInAttendee();

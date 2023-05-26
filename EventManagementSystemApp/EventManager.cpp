@@ -5,6 +5,7 @@
 #include <fstream>
 #include <memory>
 #include <json/json.h>
+//================================================================
 
 //Constructor
 EventManager::EventManager() {
@@ -19,38 +20,38 @@ EventManager::EventManager() {
         for (Json::ValueIterator itr = events.begin(); itr != events.end(); itr++) {
             std::string event = itr.key().asString();
             if (events[event]["type"] == "conference") {
-                Conference conference = Conference(
+                Conference* conference = new Conference(
                     event,
                     events[event]["location"].asString(),
                     events[event]["date"].asString(),
                     events[event]["time"].asString(),
                     events[event]["topic"].asString()
                 );
-                conference.setId(events[event]["id"].asUInt());
+                conference->setId(events[event]["id"].asUInt());
                 allEvents.push_back(conference);
 
             }
             else if (events[event]["type"] == "product launch") {
-                ProductLaunch productLaunch = ProductLaunch(
+                ProductLaunch* productLaunch = new ProductLaunch(
                     event,
                     events[event]["location"].asString(),
                     events[event]["date"].asString(),
                     events[event]["time"].asString(),
                     events[event]["product"].asString()
                 );
-                productLaunch.setId(events[event]["id"].asUInt());
+                productLaunch->setId(events[event]["id"].asUInt());
                 allEvents.push_back(productLaunch);
 
             }
             else if (events[event]["type"] == "corporate party") {
-                CorporateParty corporateParty = CorporateParty(
+                CorporateParty* corporateParty = new CorporateParty(
                     event,
                     events[event]["location"].asString(),
                     events[event]["date"].asString(),
                     events[event]["time"].asString(),
-                    events[event]["topic"].asString()
+                    events[event]["attire"].asString()
                 );
-                corporateParty.setId(events[event]["id"].asUInt());
+                corporateParty->setId(events[event]["id"].asUInt());
                 allEvents.push_back(corporateParty);
             }
         }
@@ -71,18 +72,18 @@ EventManager::EventManager() {
 
         for (Json::ValueIterator itr = users.begin(); itr != users.end(); itr++) {
             std::string user = itr.key().asString();
-            Attendee attendee = Attendee(
+            Attendee* attendee = new Attendee(
                 user.substr(0, user.find(' ')),
                 user.substr(user.find(' ') + 1),
                 users[user]["email"].asString(),
                 users[user]["phoneNumber"].asString(),
                 users[user]["password"].asString()
             );
-            attendee.setId(users[user]["id"].asUInt());
+            attendee->setId(users[user]["id"].asUInt());
 
             //Vector that contains all ids of particular user's events
             std::vector<unsigned int> userEventsIds = {};
-            std::vector<Event> userEventsObj= {};
+            std::vector<Event*> userEventsObj= {};
 
             Json::Value userEvents = users[user]["events"];
             for (Json::ValueIterator itr = userEvents.begin(); itr != userEvents.end(); itr++) {
@@ -93,15 +94,15 @@ EventManager::EventManager() {
             for (Json::ValueIterator itr = events.begin(); itr != events.end(); itr++) {
                 std::string event = itr.key().asString();
                 if ((std::find(userEventsIds.begin(), userEventsIds.end(), events[event]["id"].asUInt())) != userEventsIds.end()) {
-                    for (Event& eventObj : allEvents) {
-                        if (eventObj.getId() == events[event]["id"].asUInt()) {
+                    for (Event* eventObj : allEvents) {
+                        if (eventObj->getId() == events[event]["id"].asUInt()) {
                             userEventsObj.push_back(eventObj);
                         }
                     }
                 }
             }
 
-            attendee.setEvents(userEventsObj);
+            attendee->setEvents(userEventsObj);
             allAttendees.push_back(attendee);
 
 
@@ -115,38 +116,98 @@ EventManager::EventManager() {
 
 }
 
+//Destructor
+EventManager::~EventManager() {
+    for (Event* event : allEvents) {
+        delete event;
+    }
+    allEvents.clear();
+}
+
+
 //Getters 
-std::vector<Attendee> EventManager::getAllAttendees() {
+std::vector<Attendee*> EventManager::getAllAttendees() {
     return allAttendees;
 }
 
-std::vector<Event> EventManager::getAllEvents() {
+std::vector<Event*> EventManager::getAllEvents() {
     return allEvents;
 }
+
 
 //Show all attendees function
 void EventManager::showAllAttendees() {
     std::cout << "**********************************All attendees**********************************\n";
-        for (Attendee& attendee : allAttendees)
+        for (Attendee* attendee : allAttendees)
     {
-        std::cout << attendee << std::endl;
+        std::cout << std::endl << *attendee << std::endl;
         std::cout << "**********************************\n";
     }
 }
 
-//Show all events function
-void EventManager::showAllEvents() {
-    std::cout << "**********************************All events**********************************\n";
-    for (Event& event : allEvents)
-    {
-        event.showDetails();
-        std::cout << "**********************************\n";
+//Show  events function
+void EventManager::showEvents(std::string type) {
+    bool empty = true;
+
+    if (!allEvents.empty()) {
+        if (type == "") {
+            std::cout << "**********************************All events**********************************\n";
+            for (Event* event : allEvents) {
+                std::cout << std::endl;
+                event->showDetails();
+                std::cout << std::endl;
+                std::cout << "**********************************\n";
+            }
+        }
+        else if (type == "ProductLaunch") {
+            std::cout << "**********************************All product launch events**********************************\n";
+            for (Event* event : allEvents) {
+                if (ProductLaunch* productLaunchEvent = dynamic_cast<ProductLaunch*>(event)) {
+                    empty = false;
+                    productLaunchEvent->showDetails();
+                    std::cout << "**********************************\n";
+                }
+            }
+            if (empty) {
+                std::cout << "No product launch events yet\n";
+            }
+        }
+        else if (type == "Conference") {
+            std::cout << "**********************************All conferences**********************************\n";
+            for (Event* event : allEvents) {
+                if (Conference* conferenceEvent = dynamic_cast<Conference*>(event)) {
+                    empty = false;
+                    conferenceEvent->showDetails();
+                    std::cout << "**********************************\n";
+                }
+            }
+            if (empty) {
+                std::cout << "No conferences yet\n";
+            }
+        }
+        else if (type == "CorporateParty") {
+            std::cout << "**********************************All corporate parties**********************************\n";
+            for (Event* event : allEvents) {
+                if (CorporateParty* corporatePartyEvent = dynamic_cast<CorporateParty*>(event)) {
+                    empty = false;
+                    corporatePartyEvent->showDetails();
+                    std::cout << "**********************************\n";
+                }
+            }
+            if (empty) {
+                std::cout << "No corporate parties events yet\n";
+            }
+        }
 
     }
+    else {
+        std::cout << "No events yet\n";
+    }
+
 }
 
-//Add an attendee
-bool EventManager::addAttendee(Attendee& attendee) {
+//Add an attendee function
+bool EventManager::addAttendee(Attendee* attendee) {
     std::ifstream db_users_input;
     std::ofstream db_users_output;
     Json::Value users;
@@ -154,11 +215,11 @@ bool EventManager::addAttendee(Attendee& attendee) {
 
 
     //Check if Id of this attendee was already taken
-    unsigned int id = attendee.getId();
+    unsigned int id = attendee->getId();
     bool idIsTaken = false;
     if (!allEvents.empty()) {
-        for (Attendee& otherAttendee : allAttendees) {
-            if (otherAttendee.getId() == id) {
+        for (Attendee* otherAttendee : allAttendees) {
+            if (otherAttendee->getId() == id) {
                 idIsTaken = true;
                 break;
             }
@@ -169,15 +230,15 @@ bool EventManager::addAttendee(Attendee& attendee) {
         id++;
         idIsTaken = false;
 
-        for (Attendee& otherAttendee : allAttendees) {
-            if (otherAttendee.getId() == id) {
+        for (Attendee* otherAttendee : allAttendees) {
+            if (otherAttendee->getId() == id) {
                 idIsTaken = true;
                 break;
             }
         }
     } 
 
-    attendee.setId(id);
+    attendee->setId(id);
 
 
     //Parse JSON object
@@ -195,11 +256,11 @@ bool EventManager::addAttendee(Attendee& attendee) {
     db_users_output.open("./Data/db_users.json");
     if (db_users_output.is_open()) {
 
-        std::string fullName = attendee.getFirstName() + " " + attendee.getLastName();
-        std::string email = attendee.getEmail();
-        std::string phoneNumber = attendee.getPhoneNumber();
-        unsigned int id = attendee.getId();
-        std::string password = attendee.getPassword();
+        std::string fullName = attendee->getFirstName() + " " + attendee->getLastName();
+        std::string email = attendee->getEmail();
+        std::string phoneNumber = attendee->getPhoneNumber();
+        unsigned int id = attendee->getId();
+        std::string password = attendee->getPassword();
 
         users[fullName]["email"] = email;
         users[fullName]["phoneNumber"] = phoneNumber;
@@ -226,19 +287,19 @@ bool EventManager::addAttendee(Attendee& attendee) {
     }
 }
 
-//Add an event
-bool EventManager::addEvent(Event& event) {
+//Add an event function
+bool EventManager::addEvent(Event* event) {
     std::ifstream db_events_input;
     std::ofstream db_events_output;
     Json::Value events;
 
 
     //Check if Id of this event was already taken
-    unsigned int id = event.getId();
+    unsigned int id = event->getId();
     bool idIsTaken = false;
     if (!allEvents.empty()) {
-        for (Event& otherEvent : allEvents) {
-            if (otherEvent.getId() == id) {
+        for (Event* otherEvent : allEvents) {
+            if (otherEvent->getId() == id) {
                 idIsTaken = true;
                 break;
             }
@@ -249,15 +310,15 @@ bool EventManager::addEvent(Event& event) {
         id++;
         idIsTaken = false;
 
-        for (Event& otherEvent : allEvents) {
-            if (otherEvent.getId() == id) {
+        for (Event* otherEvent : allEvents) {
+            if (otherEvent->getId() == id) {
                 idIsTaken = true;
                 break;
             }
         }
     }
 
-    event.setId(id);
+    event->setId(id);
 
 
     //Parse JSON object
@@ -276,10 +337,10 @@ bool EventManager::addEvent(Event& event) {
     db_events_output.open("./Data/db_events.json");
     if (db_events_output.is_open()) {
 
-        std::string name = event.getName();
-        std::string location = event.getLocation();
-        std::string date = event.getDate();
-        std::string time = event.getTime();
+        std::string name = event->getName();
+        std::string location = event->getLocation();
+        std::string date = event->getDate();
+        std::string time = event->getTime();
 
 
         events[name]["location"] = location;
@@ -288,16 +349,16 @@ bool EventManager::addEvent(Event& event) {
         events[name]["id"] = id;
 
         //Check what type of an event was passed as an argument
-        if(Conference* conference = dynamic_cast<Conference*>(&event)) {
+        if(Conference* conference = dynamic_cast<Conference*>(event)) {
             std::string topic = conference->getTopic();
             events[name]["type"] = "conference";
             events[name]["topic"] = topic;
-        }else if (ProductLaunch* productLaunch = dynamic_cast<ProductLaunch*>(&event)) {
+        }else if (ProductLaunch* productLaunch = dynamic_cast<ProductLaunch*>(event)) {
             std::string product = productLaunch->getProduct();
             events[name]["type"] = "product launch";
             events[name]["product"] = product;
         }
-        else if (CorporateParty* corporateParty = dynamic_cast<CorporateParty*>(&event)) {
+        else if (CorporateParty* corporateParty = dynamic_cast<CorporateParty*>(event)) {
             std::string attire = corporateParty->getAttire();
             events[name]["type"] = "corporate party";
             events[name]["attire"] = attire;
@@ -321,7 +382,7 @@ bool EventManager::addEvent(Event& event) {
 }
 
 //Delete an event
-bool EventManager::deleteEvent(Event& event) {
+bool EventManager::deleteEvent(Event* event) {
     std::ifstream db_events_input;
     std::ofstream db_events_output;
     std::ifstream db_users_input;
@@ -352,7 +413,7 @@ bool EventManager::deleteEvent(Event& event) {
     }
 
     // Remove the event from the JSON objects
-    std::string eventName = event.getName();
+    std::string eventName = event->getName();
     std::vector<std::string> userNames;
 
     if (events.isMember(eventName)) {
@@ -363,10 +424,7 @@ bool EventManager::deleteEvent(Event& event) {
                 userNames.push_back(userKey);
             }
         }
-
         events.removeMember(eventName);
-
-
     }
     else {
         std::cout << "Event is not found\n";
@@ -386,21 +444,19 @@ bool EventManager::deleteEvent(Event& event) {
         if (db_users_output.good() && db_events_output.good()) {
             // Remove the event from the attendee events vector
             for (std::string userName : userNames) {
-                for (Attendee& attendee : allAttendees) {
-                    if (attendee.getFirstName() + " " + attendee.getLastName() == userName) {
-                        attendee.removeAttendeeEvent(event);
+                for (Attendee* attendee : allAttendees) {
+                    if (attendee->getFirstName() + " " + attendee->getLastName() == userName) {
+                        attendee->removeAttendeeEvent(event);
                     }
                 }
             }
             // Remove the event from the allEvents vector
             auto it = std::find(allEvents.begin(), allEvents.end(), event);
             if (it != allEvents.end()) {
-                allEvents.erase(it);
+                delete event;
                 return 1;
             }
-
             return 0;
-
         }
         else {
             std::cout << "Error. Failed to write JSON to the output stream." << std::endl;
@@ -414,9 +470,8 @@ bool EventManager::deleteEvent(Event& event) {
 
 }
 
-
 //Assign an event to an attendee
-bool EventManager::assignEvent(Event& event, Attendee& attendee) {
+bool EventManager::assignEvent(Event* event, Attendee* attendee) {
     std::ifstream db_events;
     std::ifstream db_users_input;
     std::ofstream db_users_output;
@@ -446,12 +501,12 @@ bool EventManager::assignEvent(Event& event, Attendee& attendee) {
         return 0;
     }
 
-    std::string userName = attendee.getFirstName() + " " + attendee.getLastName();
-    std::string eventName = event.getName();
+    std::string userName = attendee->getFirstName() + " " + attendee->getLastName();
+    std::string eventName = event->getName();
 
     if (events.isMember(eventName) && users.isMember(userName)) {
         if (users[userName]["events"].isMember(eventName)) {
-            std::cout << "Attendee is already invited to this event\n";
+            std::cout << "\nAttendee is already invited to this event\n";
             return 0;
         }
         users[userName]["events"][eventName] = events[eventName];
@@ -464,11 +519,11 @@ bool EventManager::assignEvent(Event& event, Attendee& attendee) {
     db_users_output.open("./Data/db_users.json");
     if (db_users_output.is_open()) {
         db_users_output << users;
-        attendee.addEvent(event);
-        for (Attendee& otherAttendee : allAttendees) {
+        attendee->addEvent(event);
+        for (Attendee* otherAttendee : allAttendees) {
             if (otherAttendee == attendee) {
-                std::vector<Event> attendeeEvents = attendee.getAttendeeEvents();
-                otherAttendee.setEvents(attendeeEvents);
+                std::vector<Event*> attendeeEvents = attendee->getAttendeeEvents();
+                otherAttendee->setEvents(attendeeEvents);
                 break;
             }
         }
