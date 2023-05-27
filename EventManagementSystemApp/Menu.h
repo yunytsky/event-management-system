@@ -24,6 +24,5 @@ extern Menu adminMenu;
 extern Menu userMenu;
 extern Menu logInMenu;
 extern Menu adminAttendeesMenu;
-extern Menu adminEventsMenu;
 extern Menu eventTypeCreateMenu ;
 extern Menu eventTypeDisplayMenu;

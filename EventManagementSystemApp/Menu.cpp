@@ -44,8 +44,7 @@ Menu defaultMenu = Menu({ "Log in", "Sign up", "Exit" });
 Menu adminMenu = Menu({ "Show attendees", "Show events", "Add an event", "Delete an event", "Invite attendee to an event", "Log out"});
 Menu userMenu = Menu({ "Show my events", "Log out" });
 Menu logInMenu = Menu({ "Log in as an admin", "Log in as an attendee", "Go back" });
-Menu adminAttendeesMenu = Menu({ "Show all attendees", "Show one attendee by ID" });
-Menu adminEventsMenu = Menu({ "Show all events", "Show one event by category" });
+Menu adminAttendeesMenu = Menu({ "Show all attendees", "Show one attendee by ID", "Show all attendees invited to a particular event" ,"Go back"});
 Menu eventTypeCreateMenu = Menu({ "Conference", "Product launch", "Corporate party", "Go back" });
 Menu eventTypeDisplayMenu = Menu({ "Show all events", "Conferences", "Product launches", "Corporate parties", "Go back" });
 

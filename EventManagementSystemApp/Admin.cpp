@@ -223,22 +223,28 @@ void deleteEventById(unsigned int id) {
 
 }
 
-//Navigate an admin through menu
-void navigateAdmin() {
-    std::string goBack;
-    std::cout << "Enter 0 to go back to the admin menu: ";
-    std::cin >> goBack;
-    if (goBack == "0") {
-        system("cls");
-        callAdminMenu();
-    }
-    else {
-        std::cout << "Undefined option.\nTry again: ";
-        std::cin >> goBack;
+// Call menu for displaying invited attendees
+void callInvitedAttendeesMenu() {
+    unsigned id = pickAnEvent();
+    bool found = false;
+    while (!found) {
+        for (Event* event : eventManager.getAllEvents()) {
+            if (event->getId() == id) {
+                found = true;
+                system("cls");
+                eventManager.showAllAttendeesInvited(event);
+                break;
+            }
+        }
+
+        if (!found) {
+            std::cout << "Wrong Event's ID. Try again: ";
+            std::cin >> id;
+        }
     }
 }
 
-//Call admin menu for displaying events 
+//Call admin menu for displaying events/attendees 
 void callShowEventsAdminMenu() {
     eventTypeDisplayMenu.displayMenu();
     std::string eventType;
@@ -285,6 +291,61 @@ void callShowEventsAdminMenu() {
         }
     } while (error);
 }
+void callShowAttendeesAdminMenu() {
+    adminAttendeesMenu.displayMenu();
+    unsigned int id;
+    int choice;
+    bool error;
+    do {
+        error = false;
+        choice = eventTypeDisplayMenu.chooseOption();
+        switch (choice) {
+            //Display all attendees
+        case 1:
+            system("cls");
+            eventManager.showAllAttendees();
+            break;
+            //Display one attendee by ID
+        case 2:
+            system("cls");
+            std::cout << "Enter the ID of the user: ";
+            std::cin >> id;
+            eventManager.showOneAttendee(id);
+            break;
+
+            //Show all attendees invited to a particular event
+        case 3:
+            system("cls");
+            callInvitedAttendeesMenu();
+            navigateAdmin();
+            break;
+            //Go back
+        case 4:
+            system("cls");
+            callAdminMenu();
+            break;
+        default:
+            std::cout << "Try again: ";
+            error = true;
+        }
+    } while (error);
+
+}
+
+//Navigate an admin through menu
+void navigateAdmin() {
+    std::string goBack;
+    std::cout << "Enter 0 to go back to the admin menu: ";
+    std::cin >> goBack;
+    if (goBack == "0") {
+        system("cls");
+        callAdminMenu();
+    }
+    else {
+        std::cout << "Undefined option.\nTry again: ";
+        std::cin >> goBack;
+    }
+}
 
 //Call admin menu 
 void callAdminMenu() {
@@ -296,10 +357,10 @@ void callAdminMenu() {
         int choice = adminMenu.chooseOption();
         switch (choice)
         {
-            //Show all attendees
+            //Show attendees
         case 1:
             system("cls");
-            eventManager.showAllAttendees();
+            callShowAttendeesAdminMenu();
             navigateAdmin();
             break;
 

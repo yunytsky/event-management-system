@@ -145,6 +145,51 @@ void EventManager::showAllAttendees() {
     }
 }
 
+//Show all attendees invited to a particular event
+void EventManager::showAllAttendeesInvited(Event* event) {
+
+    //Getting the name of the event, displaying a header
+    std::string eventName = event->getName();
+    std::cout << "*****************************All attendes invited to " + eventName+ "*****************************\n";
+    
+    //Looking for attendees that are invited to the event
+    std::vector<Attendee*> attendeesInvited;
+
+    for (Attendee* attendee : allAttendees) {
+        std::vector<Event*> attendeeEvents = attendee->getAttendeeEvents();
+        for (Event* attendeeEvent : attendeeEvents) {
+            if (attendeeEvent == event) {
+                attendeesInvited.push_back(attendee);
+                break;
+            }
+        }
+    }
+
+    //Displaying invited attendees
+    if (!attendeesInvited.empty()) {
+        for (int i = 0; i < attendeesInvited.size(); i++)
+        {
+            std::cout << i+1 << ") " << attendeesInvited[i]->getFirstName() << " " << attendeesInvited[i]->getLastName() << std::endl;
+            std::cout << "Email: " << attendeesInvited[i]->getEmail() << std::endl;
+            std::cout << "Phone number: " << attendeesInvited[i]->getPhoneNumber() << std::endl;
+            std::cout << "**********************************\n";
+        }
+    }
+    else {
+        std::cout << "No invited attendees\n";
+    }
+}
+
+
+//Show one attendee by id
+void EventManager::showOneAttendee(unsigned int id) {
+    for (Attendee* attendee : allAttendees) {
+        if (attendee->getId() == id) {
+            std::cout << *attendee << std::endl;
+        }
+    }
+}
+
 //Show  events function
 void EventManager::showEvents(std::string type) {
     bool empty = true;

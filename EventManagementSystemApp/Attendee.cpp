@@ -13,6 +13,7 @@ Attendee::Attendee(std::string firstName, std::string lastName, std::string emai
 
 //Destructor
 Attendee::~Attendee(){
+    std::cout << "destr" << std::endl;
     for (Event* event : attendeeEvents) {
         delete event;
     }

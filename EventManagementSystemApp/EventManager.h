@@ -13,10 +13,15 @@ private:
 public:
 	EventManager();
 	~EventManager();
+
 	std::vector<Attendee*> getAllAttendees();
 	std::vector<Event*> getAllEvents();
+
 	void showAllAttendees();
+	void showOneAttendee(unsigned int id);
 	void showEvents(std::string);
+	void showAllAttendeesInvited(Event* event);
+
 	bool addAttendee(Attendee*);
 	bool addEvent(Event*);
 	bool deleteEvent(Event*);

@@ -2,7 +2,18 @@
 	"Alex Petrenko" : 
 	{
 		"email" : "alexpetrenko@gmail.com",
-		"events" : {},
+		"events" : 
+		{
+			"Company birthday" : 
+			{
+				"attire" : "semi-formal",
+				"date" : "5 July, 2023",
+				"id" : 1,
+				"location" : "Kyiv, Polovetska street",
+				"time" : "8pm",
+				"type" : "corporate party"
+			}
+		},
 		"id" : 3,
 		"password" : "pass123",
 		"phoneNumber" : "0974198265"
@@ -18,18 +29,7 @@
 	"Ivan Andrienko" : 
 	{
 		"email" : "jacksmith@gmail.com",
-		"events" : 
-		{
-			"COMPSCI 2023" : 
-			{
-				"date" : "10 August, 2023",
-				"id" : 3,
-				"location" : "Kyiv, Hrushevskoho street",
-				"time" : "10am",
-				"topic" : "Computer science",
-				"type" : "conference"
-			}
-		},
+		"events" : {},
 		"id" : 1,
 		"password" : "pass123",
 		"phoneNumber" : "0974198268"
@@ -58,15 +58,6 @@
 		"email" : "tkachukyaroslav@gmail.com",
 		"events" : 
 		{
-			"ASUS presentation" : 
-			{
-				"date" : "12 November, 2023",
-				"id" : 4,
-				"location" : "Vancouver, 46th avenue",
-				"product" : "laptop",
-				"time" : "6pm",
-				"type" : "product launch"
-			},
 			"Company birthday" : 
 			{
 				"attire" : "semi-formal",

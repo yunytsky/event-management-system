@@ -17,3 +17,5 @@ void callAdminMenu();
 void navigateAdmin();
 void deleteEventById(unsigned int);
 void callShowEventsAdminMenu();
+void callShowAttendeesAdminMenu();
+void callInvitedAttendeesMenu();
