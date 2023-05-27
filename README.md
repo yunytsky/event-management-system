@@ -2,9 +2,9 @@
 
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_mainMenu.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_mainMenu.png">
-  <img alt="Shows the main menu of the app" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_mainMenu.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_main_menu.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_main_menu.png">
+  <img alt="Shows the main menu of the app" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/3_main_menu.png">
 </picture>
 
 
@@ -14,7 +14,7 @@ The program provides an ability to manage a collection of events and attendees, 
 Attendee can display events they are invited to (filter by category or display all of them). 
 An attendee (user) can also sign up by providing the registration-key. 
 
-Admin can display all events (filter by category or display all of the existing events), display all of the existing users (along with events they are invited to), create a new event, delete an existing event (it will also delete if from the vectors with events of all users that were invited to that event), invite attendee to an event.
+Admin can display all events (filter by category or display all of the existing events), display all of the existing users (along with events they are invited to), display one attendee(user) by ID, or display all attendees(users) that were invited to the particular event, create a new event, delete an existing event (it will also delete if from the vectors with events of all users that were invited to that event), invite attendee to an event.
 
 Users (attendees) cannot invite themselves to events, only admin can. 
 
@@ -23,21 +23,21 @@ Navigation throught the different sections is implemented, there's no need to re
 ## Screenshots
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logInMenu.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logInMenu.png">
-  <img alt="Shows the login menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logInMenu.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logIn_menu.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logIn_menu.png">
+  <img alt="Shows the login menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/4_logIn_menu.png">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_userMenu.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_userMenu.png">
-  <img alt="Shows the user (attendee) menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_userMenu.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_user_menu.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_user_menu.png">
+  <img alt="Shows the user (attendee) menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/6_user_menu.png">
 </picture>
 
 <picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_adminMenu.png">
-  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_adminMenu.png">
-  <img alt="Shows the admin menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_adminMenu.png">
+  <source media="(prefers-color-scheme: dark)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_admin_menu.png">
+  <source media="(prefers-color-scheme: light)" srcset="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_admin_menu.png">
+  <img alt="Shows the admin menu" src="https://github.com/yunytsky/event-management-system/blob/main/Samples/5_admin_menu.png">
 </picture>
 
 
